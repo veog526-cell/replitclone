@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "Within Fitness"
+version = "1.0.0"
+id = "artifacts/within-fitness"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22821
+
+[services.development]
+run = "pnpm --filter @workspace/within-fitness run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/within-fitness", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/within-fitness/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22821"
+BASE_PATH = "/"
