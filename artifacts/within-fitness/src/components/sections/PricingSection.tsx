@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Check } from "lucide-react";
+import { Check, ArrowUpRight } from "lucide-react";
+
+const BOOKING_URL = "https://www.within.fitness/c/1-on-1-assessments-c319f3";
 
 type PlanTab = "4mo" | "12mo";
 
@@ -115,9 +117,15 @@ export function PricingSection() {
                 </ul>
               </div>
 
-              <button className="w-full py-4 rounded-full border border-white/20 text-white font-medium hover:bg-white/5 transition-colors">
+              <a
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-4 rounded-full border border-white/20 text-white font-medium hover:bg-white/5 transition-colors inline-flex items-center justify-center gap-2 group"
+              >
                 Enter The Lobby
-              </button>
+                <ArrowUpRight className="w-4 h-4 opacity-60 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </a>
             </div>
           </motion.div>
 
@@ -172,10 +180,16 @@ export function PricingSection() {
                 </ul>
               </div>
 
-              <button className="w-full py-4 rounded-full bg-gradient-to-r from-primary to-secondary text-white font-bold hover:scale-[1.02] transition-transform shadow-[0_0_20px_rgba(59,130,246,0.4)] relative overflow-hidden group/btn">
+              <a
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-4 rounded-full bg-gradient-to-r from-primary to-secondary text-white font-bold hover:scale-[1.02] transition-transform shadow-[0_0_20px_rgba(59,130,246,0.4)] relative overflow-hidden group/btn inline-flex items-center justify-center gap-2"
+              >
                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300"></div>
                 <span className="relative z-10">Join The Inner Circle</span>
-              </button>
+                <ArrowUpRight className="relative z-10 w-4 h-4 opacity-80 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </a>
             </div>
           </motion.div>
 

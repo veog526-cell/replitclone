@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
-import { Monitor, AlertTriangle, ScanLine, ArrowDown } from "lucide-react";
+import { Monitor, AlertTriangle, ScanLine, ArrowDown, ArrowUpRight } from "lucide-react";
+
+const BOOKING_URL = "https://www.within.fitness/c/1-on-1-assessments-c319f3";
 
 export function HeroSection() {
   const scrollTo = (id: string) => {
@@ -65,16 +67,18 @@ export function HeroSection() {
           </motion.p>
 
           <motion.div variants={itemVariants} className="flex justify-center">
-            <button 
-              onClick={() => scrollTo("assessment-room")}
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary text-white rounded-full font-bold text-lg overflow-hidden transition-all hover:scale-105"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-primary via-blue-400 to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-gradient-xy"></div>
               <span className="relative z-10 flex items-center gap-2">
                 Begin Your Assessment
-                <ScanLine className="w-5 h-5 group-hover:animate-pulse" />
+                <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </span>
-            </button>
+            </a>
           </motion.div>
         </motion.div>
 

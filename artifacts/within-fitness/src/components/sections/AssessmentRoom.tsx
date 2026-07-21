@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2, Activity, Search, X, ArrowRight, Terminal } from "lucide-react";
 import { ToolRealityCheck } from "../tools/ToolRealityCheck";
@@ -54,6 +54,17 @@ const modalTitles: Record<string, string> = {
 
 export function AssessmentRoom() {
   const [active, setActive] = useState<ToolKey>(null);
+
+  useEffect(() => {
+    if (active) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [active]);
 
   return (
     <section id="assessment-room" className="py-24 relative z-10">

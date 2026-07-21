@@ -1,7 +1,9 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useState, useEffect } from "react";
 import logoPath from "@assets/E53F014E-6D40-43E2-8964-2AD8E7880657-removebg-preview_1784675003054.png";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
+
+const BOOKING_URL = "https://www.within.fitness/c/1-on-1-assessments-c319f3";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,7 +35,10 @@ export function Navbar() {
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-          <img src={logoPath} alt="Within Fitness" className="h-8 w-auto object-contain" />
+          <div className="relative">
+            <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-primary/40 via-secondary/40 to-primary/40 blur-2xl opacity-70 scale-150"></div>
+            <img src={logoPath} alt="Within Fitness" className="h-8 w-auto object-contain drop-shadow-[0_0_12px_rgba(59,130,246,0.5)]" />
+          </div>
         </div>
 
         {/* Desktop Nav */}
@@ -45,17 +50,20 @@ export function Navbar() {
         </nav>
 
         <div className="hidden md:block">
-          <button 
-            onClick={() => scrollTo("assessment-room")}
-            className="relative group px-6 py-2.5 rounded-full overflow-hidden"
+          <a
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative group px-6 py-2.5 rounded-full overflow-hidden inline-flex items-center justify-center"
           >
             <div className="absolute inset-0 bg-white/5 backdrop-blur-md border border-white/10 rounded-full transition-all group-hover:bg-white/10"></div>
             <div className="absolute inset-0 rounded-full border border-primary/50 group-hover:border-primary transition-colors animate-pulse-ring"></div>
             <span className="relative text-sm font-semibold tracking-wide text-white flex items-center gap-2">
               <div className="w-1.5 h-1.5 rounded-full bg-primary" />
               Enter Assessment Room
+              <ArrowUpRight className="w-3.5 h-3.5 opacity-70 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </span>
-          </button>
+          </a>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -79,16 +87,19 @@ export function Navbar() {
           <button onClick={() => scrollTo("pricing")} className="text-lg font-medium text-white/80 text-left">The Lobby</button>
           <button onClick={() => scrollTo("pricing")} className="text-lg font-medium text-white/80 text-left">The Inner Circle</button>
           
-          <button 
-            onClick={() => scrollTo("assessment-room")}
-            className="w-full relative group px-6 py-3 rounded-full overflow-hidden mt-4"
+          <a
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full relative group px-6 py-3 rounded-full overflow-hidden mt-4 inline-flex items-center justify-center"
           >
             <div className="absolute inset-0 bg-primary/20 backdrop-blur-md border border-primary/50 rounded-full"></div>
             <span className="relative text-base font-semibold tracking-wide text-white flex items-center justify-center gap-2">
               <div className="w-2 h-2 rounded-full bg-primary" />
               Enter Assessment Room
+              <ArrowUpRight className="w-4 h-4 opacity-70" />
             </span>
-          </button>
+          </a>
         </motion.div>
       )}
     </motion.header>
