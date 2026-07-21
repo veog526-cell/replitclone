@@ -1,4 +1,4 @@
-import logoPath from "@assets/E53F014E-6D40-43E2-8964-2AD8E7880657_1784668976948.png";
+import logoPath from "@assets/E53F014E-6D40-43E2-8964-2AD8E7880657-removebg-preview_1784675003054.png";
 import { Mail } from "lucide-react";
 
 export function Footer() {
