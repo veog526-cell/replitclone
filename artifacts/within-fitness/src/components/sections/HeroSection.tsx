@@ -81,7 +81,7 @@ export function HeroSection() {
         {/* Pillars */}
         <motion.div 
           id="philosophy"
-          className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mt-auto"
+          className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mt-auto pb-20"
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
