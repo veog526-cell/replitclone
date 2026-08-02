@@ -1,2 +1,3 @@
 - [Modal body scroll lock](modal-scroll-lock.md) — lock background scroll when full-screen overlays are open, clean up on close/unmount.
 - [Primary CTAs point to booking URL](booking-cta.md) — all major conversion buttons route to the external 1-on-1 assessments page.
+- [Assessment email handoff](assessment-email-links.md) — use a direct Gmail compose URL for repeatable report handoff; browser mailto handlers can stop responding after the first use.
