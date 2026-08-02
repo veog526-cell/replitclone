@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Activity } from "lucide-react";
+import { AssessmentEmailButton } from "./AssessmentEmailButton";
 
 const categories = [
   "Sleep & Recovery",
@@ -127,6 +128,16 @@ export function ToolStressMap() {
               transition={{ duration: 0.5, delay: i * 0.05 }}
             />
           ))}
+        </div>
+
+        <div className="mt-8 pt-6 border-t border-white/10 flex flex-col items-center gap-3">
+          <AssessmentEmailButton
+            subject="Within Fitness — Metabolic Stress Map Results"
+            body={`Metabolic Stress Map Results\n\nTotal System Load: ${totalScore}/40\nSignal: ${badgeTitle}\n${badgeDesc}\n\nCategory scores:\n${categories.map((category, index) => `${category}: ${scores[index]}/5`).join("\n")}`}
+          />
+          <p className="text-xs text-white/35 text-center">
+            Opens your email app with this report ready to send.
+          </p>
         </div>
       </div>
     </motion.div>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, ChevronLeft, CheckCircle2, X } from "lucide-react";
+import { AssessmentEmailButton } from "./AssessmentEmailButton";
 
 type Answers = Record<string, string | string[]>;
 
@@ -276,6 +277,33 @@ export function ToolRealityCheck() {
                 <div className="mt-8 p-6 rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 border border-white/10">
                   <p className="text-lg font-medium text-white text-center leading-relaxed">
                     You're in the right place. We'll take this from within — together.
+                  </p>
+                </div>
+
+                <div className="mt-6 flex flex-col items-center gap-3">
+                  <AssessmentEmailButton
+                    subject="Within Fitness — Reality Check Audit Results"
+                    body={`Reality Check Audit Results\n\n${steps
+                      .map((s) => {
+                        const answersForStep = [s.q1, s.q2, s.q3]
+                          .filter(Boolean)
+                          .map((q: any) => {
+                            const answer = answers[q.key];
+                            if (!answer || (Array.isArray(answer) && answer.length === 0)) {
+                              return null;
+                            }
+                            return `${q.label}\n${Array.isArray(answer) ? answer.join(", ") : answer}`;
+                          })
+                          .filter(Boolean)
+                          .join("\n\n");
+
+                        return answersForStep ? `${s.title}\n\n${answersForStep}` : null;
+                      })
+                      .filter(Boolean)
+                      .join("\n\n---\n\n")}\n\n\nYou're in the right place. We'll take this from within — together.`}
+                  />
+                  <p className="text-xs text-white/35 text-center">
+                    Opens your email app with this report ready to send.
                   </p>
                 </div>
               </div>

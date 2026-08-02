@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Search } from "lucide-react";
+import { AssessmentEmailButton } from "./AssessmentEmailButton";
 
 export function ToolBodyCalc() {
   const [unit, setUnit] = useState<"in" | "cm">("in");
@@ -141,6 +142,18 @@ export function ToolBodyCalc() {
                 This is a screening tool, not a diagnosis. Your body is more than one measurement.
               </p>
             </div>
+
+            {ratio !== null && resultBadge && (
+              <div className="mt-6 pt-6 border-t border-white/10 flex flex-col items-center gap-3">
+                <AssessmentEmailButton
+                  subject="Within Fitness — Body Intelligence Results"
+                  body={`Body Intelligence Calculator Results\n\nHeight: ${height} ${unit}\nWaist Measurement: ${waist} ${unit}\nWaist-to-Height Ratio: ${ratio.toFixed(2)}\nSignal: ${resultBadge.title}\n${resultBadge.desc}\n\nThis is a screening tool, not a diagnosis. Your body is more than one measurement.`}
+                />
+                <p className="text-xs text-white/35 text-center">
+                  Opens your email app with this report ready to send.
+                </p>
+              </div>
+            )}
           </div>
 
         </div>
