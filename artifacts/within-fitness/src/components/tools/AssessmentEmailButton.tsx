@@ -1,6 +1,6 @@
 import { Mail } from "lucide-react";
 
-const REPORT_EMAIL = "veog526@gmail.com";
+const REPORT_EMAIL = "explore@within.fitness";
 
 type AssessmentEmailButtonProps = {
   subject: string;

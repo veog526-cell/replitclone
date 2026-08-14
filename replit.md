@@ -1,15 +1,16 @@
-# [Project name]
+# Within Fitness
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+Within Fitness is a React/Vite wellness assessment experience with interactive body, stress, and reality-check audits.
 
 ## Run & Operate
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
+- `pnpm --filter @workspace/within-fitness run dev` — run the frontend (port 22821)
+- `pnpm --filter @workspace/api-server run dev` — run the API server (port 8080)
 - `pnpm run typecheck` — full typecheck across all packages
 - `pnpm run build` — typecheck + build all packages
 - `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
 - `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
+- `DATABASE_URL` is provided by Replit's managed PostgreSQL runtime.
 
 ## Stack
 
@@ -22,23 +23,29 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/within-fitness` — React/Vite frontend and assessment tools
+- `artifacts/api-server` — Express API server
+- `lib/api-spec` — OpenAPI source contract
+- `lib/api-zod` and `lib/api-client-react` — generated validation and frontend client packages
+- `lib/db` — Drizzle database package and schema
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- The repository remains a pnpm workspace; frontend, API, and shared libraries are kept as separate packages.
+- The frontend is served by the registered Within Fitness artifact workflow.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+Users can explore the Within Fitness landing page and complete interactive wellness audits that generate reports for handoff by email.
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+No additional user preferences recorded.
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- Use pnpm rather than npm or yarn.
+- The report email action opens Gmail with `explore@within.fitness` as the recipient.
 
 ## Pointers
 
