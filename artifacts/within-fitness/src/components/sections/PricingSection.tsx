@@ -4,28 +4,35 @@ import { Check, ArrowUpRight } from "lucide-react";
 
 const BOOKING_URL = "https://www.within.fitness/c/1-on-1-assessments-c319f3";
 
-type PlanTab = "4mo" | "12mo";
+type PlanTab = "monthly" | "4mo" | "12mo";
 
 const PLAN_DATA: Record<PlanTab, { price: string; billed: string; saveBadge?: string }> = {
+  monthly: { price: "149.00", billed: "Billed monthly — month-to-month" },
   "4mo":  { price: "112", billed: "Billed upfront at $448.00" },
   "12mo": { price: "83",  billed: "Billed upfront at $999.00 — Save 25%", saveBadge: "Save 25%" },
 };
 
 function PlanToggle({ tab, setTab }: { tab: PlanTab; setTab: (t: PlanTab) => void }) {
   return (
-    <div className="bg-white/5 p-1 rounded-xl flex mb-6 w-full">
+    <div className="bg-white/5 p-1 rounded-xl flex mb-6 w-full gap-0.5">
+      <button
+        onClick={() => setTab("monthly")}
+        className={`flex-1 min-w-0 px-1 py-2 text-[11px] sm:text-sm font-medium rounded-lg transition-all ${tab === "monthly" ? "bg-white/10 text-white shadow-sm" : "text-white/40 hover:text-white/80"}`}
+      >
+        Month-to-Month
+      </button>
       <button
         onClick={() => setTab("4mo")}
-        className={`flex-1 py-2 text-sm font-medium rounded-lg transition-all ${tab === "4mo" ? "bg-white/10 text-white shadow-sm" : "text-white/40 hover:text-white/80"}`}
+        className={`flex-1 min-w-0 px-1 py-2 text-[11px] sm:text-sm font-medium rounded-lg transition-all ${tab === "4mo" ? "bg-white/10 text-white shadow-sm" : "text-white/40 hover:text-white/80"}`}
       >
         4-Month Plan
       </button>
       <button
         onClick={() => setTab("12mo")}
-        className={`flex-1 py-2 text-sm font-medium rounded-lg transition-all flex items-center justify-center gap-2 ${tab === "12mo" ? "bg-white/10 text-white shadow-sm" : "text-white/40 hover:text-white/80"}`}
+        className={`flex-1 min-w-0 px-1 py-2 text-[11px] sm:text-sm font-medium rounded-lg transition-all flex items-center justify-center gap-1 ${tab === "12mo" ? "bg-white/10 text-white shadow-sm" : "text-white/40 hover:text-white/80"}`}
       >
         12-Month Plan
-        <span className="text-[10px] bg-secondary/20 text-secondary px-1.5 py-0.5 rounded">Save 25%</span>
+        <span className="hidden sm:inline text-[10px] bg-secondary/20 text-secondary px-1.5 py-0.5 rounded">Save 25%</span>
       </button>
     </div>
   );
@@ -46,7 +53,7 @@ export function PricingSection() {
   };
 
   return (
-    <section id="pricing" className="py-24 relative z-10">
+    <section id="pricing" className="py-24 relative z-10 bg-[#111827]">
       <div className="container mx-auto px-4 md:px-6">
 
         <div className="text-center mb-16">

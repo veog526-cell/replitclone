@@ -7,7 +7,7 @@ import { FounderSection } from "@/components/sections/FounderSection";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#0B0F17] text-white selection:bg-primary/30 selection:text-white">
+    <div className="min-h-screen bg-[#111827] text-white selection:bg-primary/30 selection:text-white">
       <Navbar />
       
       <main>

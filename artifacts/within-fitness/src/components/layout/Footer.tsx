@@ -11,7 +11,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="border-t border-white/10 bg-[#0B0F17] pt-20 pb-10 relative z-10 overflow-hidden">
+    <footer className="border-t border-white/10 bg-[#111827] pt-20 pb-10 relative z-10 overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
       
       <div className="container mx-auto px-4 md:px-6">

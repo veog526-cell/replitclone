@@ -113,7 +113,7 @@ export function AssessmentRoom() {
 
   return (
     <>
-      <section id="assessment-room" className="py-24 relative z-10">
+      <section id="assessment-room" className="py-24 relative z-10 bg-[#18243a]">
         <div className="container mx-auto px-4 md:px-6">
 
           {/* Header */}

@@ -29,7 +29,7 @@ export function Navbar() {
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "py-3 bg-[#0B0F17]/80 backdrop-blur-md border-b border-white/10"
+          ? "py-3 bg-[#111827]/85 backdrop-blur-md border-b border-white/10"
           : "py-5 bg-transparent"
       }`}
     >
@@ -80,7 +80,7 @@ export function Navbar() {
         <motion.div 
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="md:hidden absolute top-full left-0 right-0 bg-[#0B0F17]/95 backdrop-blur-lg border-b border-white/10 py-6 px-4 flex flex-col gap-6"
+          className="md:hidden absolute top-full left-0 right-0 bg-[#111827]/95 backdrop-blur-lg border-b border-white/10 py-6 px-4 flex flex-col gap-6"
         >
           <button onClick={() => scrollTo("philosophy")} className="text-lg font-medium text-white/80 text-left">Philosophy</button>
           <button onClick={() => scrollTo("assessment-room")} className="text-lg font-medium text-white/80 text-left">The Audits</button>
