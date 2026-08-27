@@ -12,35 +12,42 @@ const PLAN_DATA: Record<PlanTab, { price: string; billed: string; saveBadge?: st
   "12mo": { price: "83",  billed: "Billed upfront at $999.00 — Save 25%", saveBadge: "Save 25%" },
 };
 
-function PlanToggle({ tab, setTab }: { tab: PlanTab; setTab: (t: PlanTab) => void }) {
+const PLAN_LABELS: Record<PlanTab, string> = {
+  monthly: "Month-to-Month",
+  "4mo": "4-Month Plan",
+  "12mo": "12-Month Plan",
+};
+
+function PlanToggle({
+  tab,
+  setTab,
+  options,
+}: {
+  tab: PlanTab;
+  setTab: (t: PlanTab) => void;
+  options: PlanTab[];
+}) {
   return (
     <div className="bg-white/5 p-1 rounded-xl flex mb-6 w-full gap-0.5">
-      <button
-        onClick={() => setTab("monthly")}
-        className={`flex-1 min-w-0 px-1 py-2 text-[11px] sm:text-sm font-medium rounded-lg transition-all ${tab === "monthly" ? "bg-white/10 text-white shadow-sm" : "text-white/40 hover:text-white/80"}`}
-      >
-        Month-to-Month
-      </button>
-      <button
-        onClick={() => setTab("4mo")}
-        className={`flex-1 min-w-0 px-1 py-2 text-[11px] sm:text-sm font-medium rounded-lg transition-all ${tab === "4mo" ? "bg-white/10 text-white shadow-sm" : "text-white/40 hover:text-white/80"}`}
-      >
-        4-Month Plan
-      </button>
-      <button
-        onClick={() => setTab("12mo")}
-        className={`flex-1 min-w-0 px-1 py-2 text-[11px] sm:text-sm font-medium rounded-lg transition-all flex items-center justify-center gap-1 ${tab === "12mo" ? "bg-white/10 text-white shadow-sm" : "text-white/40 hover:text-white/80"}`}
-      >
-        12-Month Plan
-        <span className="hidden sm:inline text-[10px] bg-secondary/20 text-secondary px-1.5 py-0.5 rounded">Save 25%</span>
-      </button>
+      {options.map((option) => (
+        <button
+          key={option}
+          onClick={() => setTab(option)}
+          className={`flex-1 min-w-0 px-1 py-2 text-[11px] sm:text-sm font-medium rounded-lg transition-all flex items-center justify-center gap-1 ${tab === option ? "bg-white/10 text-white shadow-sm" : "text-white/40 hover:text-white/80"}`}
+        >
+          {PLAN_LABELS[option]}
+          {option === "12mo" && (
+            <span className="hidden sm:inline text-[10px] bg-secondary/20 text-secondary px-1.5 py-0.5 rounded">Save 25%</span>
+          )}
+        </button>
+      ))}
     </div>
   );
 }
 
 export function PricingSection() {
   const [lobbyTab, setLobbyTab]   = useState<PlanTab>("4mo");
-  const [circleTab, setCircleTab] = useState<PlanTab>("4mo");
+  const [circleTab, setCircleTab] = useState<PlanTab>("12mo");
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -98,7 +105,7 @@ export function PricingSection() {
                 </div>
 
                 {/* Plan toggle — mirrors Inner Circle */}
-                <PlanToggle tab={lobbyTab} setTab={setLobbyTab} />
+                <PlanToggle tab={lobbyTab} setTab={setLobbyTab} options={["monthly", "4mo"]} />
 
                 <div className="mb-8">
                   <div className="flex items-baseline gap-1 mb-1">
@@ -160,7 +167,7 @@ export function PricingSection() {
                   <p className="text-white/60 text-sm">Long-term results through biofeedback check-ins, innervation training, and metabolic design.</p>
                 </div>
 
-                <PlanToggle tab={circleTab} setTab={setCircleTab} />
+                <PlanToggle tab={circleTab} setTab={setCircleTab} options={["monthly", "12mo"]} />
 
                 <div className="mb-8">
                   <div className="flex items-baseline gap-1 mb-1">
