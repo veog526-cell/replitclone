@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Check, ArrowUpRight } from "lucide-react";
 
-const LOBBY_CHECKOUT_URL = "https://www.within.fitness/checkout/withinfitness-16-weeks-membership";
+const LOBBY_CHECKOUT_URL = "https://www.within.fitness/checkout/the-lobby";
 /* Launch: Inner Circle checkout is not linked anywhere on the site. Restore with the card next year.
 const INNER_CIRCLE_CHECKOUT_URL = "https://www.within.fitness/checkout/withinfitness-annual-membership";
 */
