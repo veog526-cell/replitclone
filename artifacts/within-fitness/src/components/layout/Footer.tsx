@@ -38,7 +38,9 @@ export function Footer() {
             <h4 className="text-white font-bold mb-6">Programs</h4>
             <ul className="space-y-4">
               <li><button onClick={() => scrollTo("pricing")} className="text-white/60 hover:text-white transition-colors text-sm">The Lobby</button></li>
+              {/* Inner Circle footer link — hidden for launch; restore in the new year.
               <li><button onClick={() => scrollTo("pricing")} className="text-white/60 hover:text-white transition-colors text-sm flex items-center gap-2">The Inner Circle <span className="text-[9px] uppercase tracking-wider bg-primary/20 text-primary px-1.5 py-0.5 rounded">Pro</span></button></li>
+              */}
             </ul>
           </div>
           

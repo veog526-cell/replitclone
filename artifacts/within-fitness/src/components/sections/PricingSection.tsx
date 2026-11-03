@@ -3,7 +3,10 @@ import { motion } from "framer-motion";
 import { Check, ArrowUpRight } from "lucide-react";
 
 const LOBBY_CHECKOUT_URL = "https://www.within.fitness/checkout/withinfitness-16-weeks-membership";
+/* Launch: Inner Circle checkout is not linked anywhere on the site. Restore with the card next year.
 const INNER_CIRCLE_CHECKOUT_URL = "https://www.within.fitness/checkout/withinfitness-annual-membership";
+*/
+const INNER_CIRCLE_CHECKOUT_URL = "";
 
 type PlanTab = "monthly" | "4mo" | "12mo";
 
@@ -84,13 +87,15 @@ export function PricingSection() {
           </motion.p>
         </div>
 
-        {/* items-stretch forces equal heights; pt-6 on the grid row gives the Inner Circle badge room */}
+        {/* Launch: one pricing card. Restore md:grid-cols-2 max-w-5xl when Inner Circle returns.
+            Original: className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch"
+            items-stretch forces equal heights; pt-6 on the grid row gives the Inner Circle badge room */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch"
+          className="grid grid-cols-1 gap-8 max-w-lg mx-auto items-stretch"
         >
           {/* ── The Lobby ── */}
           <motion.div
@@ -144,8 +149,9 @@ export function PricingSection() {
             </div>
           </motion.div>
 
-          {/* ── The Inner Circle ── */}
-          {/* overflow-visible so the badge is not clipped; pt-8 creates clearance below the badge */}
+          {/* ── The Inner Circle ── hidden for launch; restore in the new year (set false → true, or unwrap). */}
+          {false && (
+          /* overflow-visible so the badge is not clipped; pt-8 creates clearance below the badge */
           <motion.div
             variants={itemVariants}
             className="flex flex-col bg-[#121826] backdrop-blur-md border border-primary/50 rounded-3xl pt-8 px-8 pb-8 md:pt-10 md:px-10 md:pb-10 relative group shadow-[0_0_40px_rgba(59,130,246,0.1)]"
@@ -197,6 +203,7 @@ export function PricingSection() {
                 </ul>
               </div>
 
+              {/* Checkout href emptied for launch so the annual membership URL is not reachable. Restore INNER_CIRCLE_CHECKOUT_URL next year. */}
               <a
                 href={INNER_CIRCLE_CHECKOUT_URL}
                 target="_blank"
@@ -209,6 +216,7 @@ export function PricingSection() {
               </a>
             </div>
           </motion.div>
+          )}
 
         </motion.div>
       </div>

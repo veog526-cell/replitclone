@@ -46,7 +46,9 @@ export function Navbar() {
           <button onClick={() => scrollTo("philosophy")} className="text-sm font-medium text-white/70 hover:text-white transition-colors">Philosophy</button>
           <button onClick={() => scrollTo("assessment-room")} className="text-sm font-medium text-white/70 hover:text-white transition-colors">The Audits</button>
           <button onClick={() => scrollTo("pricing")} className="text-sm font-medium text-white/70 hover:text-white transition-colors">The Lobby</button>
+          {/* Inner Circle nav — hidden for launch; restore in the new year.
           <button onClick={() => scrollTo("pricing")} className="text-sm font-medium text-white/70 hover:text-white transition-colors">The Inner Circle</button>
+          */}
         </nav>
 
         <div className="hidden md:block">
@@ -85,7 +87,9 @@ export function Navbar() {
           <button onClick={() => scrollTo("philosophy")} className="text-lg font-medium text-white/80 text-left">Philosophy</button>
           <button onClick={() => scrollTo("assessment-room")} className="text-lg font-medium text-white/80 text-left">The Audits</button>
           <button onClick={() => scrollTo("pricing")} className="text-lg font-medium text-white/80 text-left">The Lobby</button>
+          {/* Inner Circle mobile nav — hidden for launch; restore in the new year.
           <button onClick={() => scrollTo("pricing")} className="text-lg font-medium text-white/80 text-left">The Inner Circle</button>
+          */}
           
           <a
             href={BOOKING_URL}
