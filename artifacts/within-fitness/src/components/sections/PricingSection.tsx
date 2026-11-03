@@ -153,12 +153,14 @@ export function PricingSection() {
             {/* Glow blob */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-[80px] -z-10 group-hover:bg-primary/30 transition-colors pointer-events-none"></div>
 
-            {/* BEST VALUE badge — sits inside the card top, not clipped */}
+            {/* BEST VALUE badge — hidden for launch; restore in the new year.
+                Sits inside the card top, not clipped.
             <div className="flex justify-center mb-6">
               <div className="px-5 py-1.5 text-xs font-bold uppercase tracking-widest text-white bg-gradient-to-r from-primary to-secondary rounded-full shadow-lg">
                 Best Value
               </div>
             </div>
+            */}
 
             {/* inner wrapper: flex-col + justify-between pins CTA to bottom */}
             <div className="flex flex-col justify-between flex-1">
